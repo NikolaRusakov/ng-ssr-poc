@@ -1,6 +1,7 @@
 {
   "serverless": {
-    "provider": "aws",
+    "provider": "firebase",
+    "firebaseProject": "epp-auth",
     "project": "some-amazing-project",
     "skipInstall": false,
     "directory": ".",

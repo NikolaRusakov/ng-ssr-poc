@@ -21,8 +21,6 @@ const BROWSER_FOLDER = join(process.cwd(), 'browser');
 // Load the index.html file containing referances to your application bundle.
 const index = readFileSync(join('browser', 'index.html'), 'utf8');
 
-let previousRender = Promise.resolve();
-
 // Iterate each route path
 ROUTES.forEach(route => {
   const fullPath = join(BROWSER_FOLDER, route);
@@ -41,3 +39,5 @@ ROUTES.forEach(route => {
     ]
   })).then(html => writeFileSync(join(fullPath, 'index.html'), html));
 });
+
+let previousRender = Promise.resolve();

@@ -14,15 +14,15 @@
     "serve:prerender": "cd dist/browser && http-server",
     "serve:ssr": "node dist/server",
     "build:browser:prod": "ng build --prod",
-    "build:browser:serverless": "ng build --prod --base-href /production/",
+    "build:browser:serverless": "ng build --prod --base-href /",
     "build:serverless": "npm run build:browser:serverless && npm run build:server:serverless",
     "build:prod": "npm run build:browser:prod && npm run build:server:prod",
     "server": "node local.js",
     "build:prod:deploy": "npm run build:prod && npm run deploy",
     "build:serverless:deploy": "npm run build:serverless && npm run deploy",
-    "deploy": "serverless deploy",
+    "deploy": "cp-cli dist/ functions/dist/ && cd functions && npm install && firebase deploy",
     "build:server:prod": "ng run some-amazing-project:server && webpack --config webpack.server.config.js --progress --colors",
-    "build:server:serverless": "ng run some-amazing-project:server:serverless && webpack --config webpack.server.config.js --progress --colors"
+    "build:server:serverless": "ng run some-amazing-project:server && webpack --config webpack.server.config.js --progress --colors"
   },
   "private": true,
   "dependencies": {
